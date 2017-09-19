@@ -7,30 +7,36 @@ services:
       - "25565:25565"
     image: itzg/minecraft-server
     volumes:
-      - MC-WORLD-V1:/data
+      #- MC-WORLD-V1:/data
+      - MC-WORLD-V2:/data
     tty: true
     stdin_open: true
     restart: always
     environment:
+      MEMORY: "4G"
       EULA: "TRUE"
-      MAX_WORLD_SIZE: 10000
+      MAX_WORLD_SIZE: 5000
       ALLOW_NETHER: "TRUE"
       ANNOUNCE_PLAYER_ACHIEVEMENTS: "TRUE"
       GENERATE_STRUCTURES: "TRUE"
-      MAX_BUILD_HEIGHT: 256
+      MAX_BUILD_HEIGHT: 192
       MAX_TICK_TIME: 60000
       SPAWN_ANIMALS: "TRUE"
       SPAWN_MONSTERS: "TRUE"
       SPAWN_NPCS: "TRUE"
-      VIEW_DISTANCE: 30
-      SEED: 1785852800490497919
+      VIEW_DISTANCE: 6
+      SEED: "-2864765711115301749"
+      #SEED: 17858529120490497919 #MC-WORLD-V1
       PVP: "TRUE"
       # https://minecraft.gamepedia.com/Server.properties
-      LEVEL_TYPE: "LARGEBIOMES"
-      LEVEL: "Seamooses-World-V1"
+      #LEVEL_TYPE: "LARGEBIOMES"
+      #LEVEL: "Seamooses-World-V1"
+      LEVEL: "Seamooses-World-V2"
       REMOVE_OLD_MODS: "TRUE"
       ONLINE_MODE: "FALSE"
       SKIP_OWNERSHIP_FIX: "FALSE"
+      TYPE: "BUKKIT"
+      BUKKIT_DOWNLOAD_URL: "https://cdn.getbukkit.org/craftbukkit/craftbukkit-1.12.2.jar"
       MODPACK: "https://addons.cursecdn.com/files/782/359/worldedit-5.6.1.zip"
       MOTD: "Welcome to Seamooses Server!"
       OPS: "seamooses"
@@ -38,4 +44,5 @@ services:
       RCON_PASSWORD: "test"
 
 volumes:
-  MC-WORLD-V1:
+  #  MC-WORLD-V1:
+  MC-WORLD-V2:
