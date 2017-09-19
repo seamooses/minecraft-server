@@ -1,0 +1,41 @@
+version: "2"
+
+services:
+  minecraft-server:
+    container_name: mc
+    ports:
+      - "25565:25565"
+    image: itzg/minecraft-server
+    volumes:
+      - MC-WORLD-V1:/data
+    tty: true
+    stdin_open: true
+    restart: always
+    environment:
+      EULA: "TRUE"
+      MAX_WORLD_SIZE: 10000
+      ALLOW_NETHER: "TRUE"
+      ANNOUNCE_PLAYER_ACHIEVEMENTS: "TRUE"
+      GENERATE_STRUCTURES: "TRUE"
+      MAX_BUILD_HEIGHT: 256
+      MAX_TICK_TIME: 60000
+      SPAWN_ANIMALS: "TRUE"
+      SPAWN_MONSTERS: "TRUE"
+      SPAWN_NPCS: "TRUE"
+      VIEW_DISTANCE: 30
+      SEED: 1785852800490497919
+      PVP: "TRUE"
+      # https://minecraft.gamepedia.com/Server.properties
+      LEVEL_TYPE: "LARGEBIOMES"
+      LEVEL: "Seamooses-World-V1"
+      REMOVE_OLD_MODS: "TRUE"
+      ONLINE_MODE: "FALSE"
+      SKIP_OWNERSHIP_FIX: "FALSE"
+      MODPACK: "https://addons.cursecdn.com/files/782/359/worldedit-5.6.1.zip"
+      MOTD: "Welcome to Seamooses Server!"
+      OPS: "seamooses"
+      ENABLE_RCON: "TRUE"
+      RCON_PASSWORD: "test"
+
+volumes:
+  MC-WORLD-V1:
